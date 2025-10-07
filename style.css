@@ -1,0 +1,59 @@
+ 
+ 
+ .container
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+} 
+ .container img{
+
+    height: 200px;
+    width: auto;
+    border-radius: 50%;
+
+ }
+
+
+
+ .home
+ {
+    text-align: center;
+    margin-top: 200px;
+ }
+
+ .contact
+ {
+    height: auto;
+    width: 300px;
+    margin-top: 200px;
+    font-size: 20px;
+    border-radius: 5px;
+    background-color: blanchedalmond;
+    padding: 20px;
+    border: 1px solid black;
+    align-items: center;
+    margin-left: 600px;
+ }
+
+
+ label{
+
+    display: block;
+ }
+
+ input[type=text], input[type=email], input[type=password], input[type=date] ,select{
+
+    width: 100%;
+    padding-top: 10px;
+    margin-top: 2px;
+ }
+ input[type=submit]
+ {
+   border-radius: 25%;
+   padding: 10px;
+   
+ }
+
