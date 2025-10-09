@@ -1,0 +1,53 @@
+div
+{
+    width: 100px;
+    height: 100px;
+    background-color: cyan;
+    border: 2px solid black;
+    display: inline-block;
+   
+}
+
+#box1
+{
+    background-image: url("Adnan.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: red;
+    position: static;
+    bottom: 20px;
+}
+
+#box2
+{
+    background-color: blue;
+    position: relative;
+    top: 20px;
+    left: 20px;
+}
+
+#box3
+{
+    background-color: green;
+    position: sticky;
+    top: 0px;
+    left: 20px;
+    z-index: 1;
+}
+
+#box4
+{
+    background-color: yellow;
+    position: fixed;
+    left: 0px;
+    top:0px;
+    
+}
+
+#box5
+{
+    background-color: purple;
+    position: absolute;
+    left: 300px;
+    z-index: 2;
+}
