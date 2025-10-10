@@ -57,6 +57,7 @@
    
  }
 
+
 a{
    text-decoration: none;
    margin-right: 30px;
@@ -75,8 +76,9 @@ a{
    width: 98%;
    left: 1%;
    right: 1%;   
+   top: 0;
    position: fixed;
-   
+   z-index: 1;
 }  
 
 footer{
@@ -90,12 +92,12 @@ footer{
    width: 98%;
    left: 1%;
    right: 1%;   
-   bottom: 1%;
+   bottom: 2%;
    position: fixed;
 }
 
 .content{
    position: relative;
    top: 70px;
-   height: 100vh;
+   height: 110vh;
 }

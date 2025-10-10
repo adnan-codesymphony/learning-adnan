@@ -1,0 +1,79 @@
+
+body{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 30px;
+}
+
+.soap, .grain{
+
+    height: 400px;
+    width: 500px;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+
+#image1, #image2, #image3, #image4{
+
+    height: 200px;
+    width: 200px;
+    background-color: aqua;
+    margin-top: 20px;
+    
+}
+
+#image1{
+
+    background-image: url("dove_new.jpg");
+    background-size: cover;
+}
+
+#image2{
+
+    background-image: url("lux.jpg");
+    background-size: cover;
+}
+/* 
+#text1{
+    position: relative;
+    right: 20px;
+
+}
+
+#text2{
+    position: relative;
+    right: 55px;
+    
+} */
+
+
+#image3{
+
+    background-image: url("rice_new.jpg");
+    background-size: cover;
+}
+
+#image4{
+
+    background-image: url("wheat.jpg");
+    background-size: cover;
+}
+
+/* #text3{
+    position: relative;
+    left: 10px;
+
+}
+
+#text4{
+    position: relative;
+    left: 10px;
+    
+}
+ */
