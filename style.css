@@ -57,6 +57,47 @@
    
  }
 
+
 a{
    text-decoration: none;
+   margin-right: 30px;
+   color: white;
+   font-weight: bold;
+   cursor: pointer;
+   
+}
+.nav{
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: blueviolet;
+   height: 50px;
+   width: 98%;
+   left: 1%;
+   right: 1%;   
+   top: 0;
+   position: fixed;
+   z-index: 1;
+}  
+
+footer{
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: gray;
+   color: white;
+   height: 50px;
+   width: 98%;
+   left: 1%;
+   right: 1%;   
+   bottom: 2%;
+   position: fixed;
+}
+
+.content{
+   position: relative;
+   top: 70px;
+   height: 110vh;
 }
