@@ -61,6 +61,7 @@
 
                 <label for="city">City</label>
                 <select name="cities">
+                    <option value="">Select City</option>
                     <option value="Jamnagar">Jamnagar</option>
                     <option value="Ahmedabad">Ahmedabad</option>
                     <option value="Surat">Surat</option>
@@ -87,7 +88,6 @@
 
             <table cellspacing="10">
                 <tr>
-                    <th>No</th>
                     <th>Firstname</th>
                     <th>Lastname</th>
                     <th>Email</th>
@@ -99,23 +99,13 @@
                     <th>City</th>
                     <th>Address</th>
                     <th>Image</th>
+                    
                 </tr>
 
-                <tr>
+                <tbody id="tableBody">
 
-                    <td>1</td>
-                    <td id="table_fname"></td>
-                    <td id="table_lname"></td>
-                    <td id="table_email"></td>
-                    <td id="table_mobile"></td>
-                    <td id="table_password"></td>
-                    <td id="table_gender"></td>
-                    <td id="table_hobbies"></td>      
-                    <td id="table_dob"></td>
-                    <td id="table_city"></td>
-                    <td id="table_address"></td>
-                    <td id="table_image"></td>
-                </tr>
+                </tbody>
+                
                
         
             </table>
@@ -129,12 +119,16 @@
     <script>
          function showData() 
         {
-
                 
                 const thisform = document.getElementById("thisform");
+                const tableBody = document.getElementById("tableBody");
+
+
                 thisform.addEventListener('submit',function(event) {
                     
+                    
                     event.preventDefault();
+                    
                 });
 
              
@@ -180,36 +174,44 @@
 
 
 
-                const table_fname = document.getElementById("table_fname").innerHTML=fname.value;
-                const table_lname = document.getElementById("table_lname").innerHTML=lname.value;
-                const table_email = document.getElementById("table_email").innerHTML=email.value;
-                const table_mobile = document.getElementById("table_mobile").innerHTML=mobile.value;
-                const table_password = document.getElementById("table_password").innerHTML=password.value;
-                const table_gender = document.getElementById("table_gender").innerHTML=gender.value;
+
+                var hobbies = "";
+
+                const newRow = document.createElement('tr');
+
+                             if(travelling.checked == true)
+                            {
+                                hobbies += "\n"+travelling.value;
+                            }
+
+                            if(reading.checked ==  true)
+                            {
+                                 hobbies += "\n"+reading.value;
+                            }
+                            
+                            if(writing.checked == true)
+                            {
+                                 hobbies += "\n"+writing.value;
+                            }
 
 
-                if(travelling.checked == true)
-                {
-                    var table_hobbies = document.getElementById("table_hobbies").innerHTML+="\n"+travelling.value;
+                newRow.innerHTML=`
+                        <td>${fname.value}</td>
+                        <td>${lname.value}</td>
+                        <td>${email.value}</td>
+                        <td>${mobile.value}</td>
+                        <td>${password.value}</td>
+                        <td>${gender.value}</td> 
+                        <td>${hobbies}</td>
+                        <td>${dob.value}</td>
+                        <td>${city.value}</td>
+                        <td>${address.value}</td>
+                        <td>${image.value}</td>   
+                    `;
+          
+               
+                tableBody.appendChild(newRow);
 
-                }
-
-                if(reading.checked ==  true)
-                {
-                    var table_hobbies = document.getElementById("table_hobbies").innerHTML+="\n"+reading.value;
-
-                }
-                
-                if(writing.checked == true)
-                {
-                    var table_hobbies = document.getElementById("table_hobbies").innerHTML+="\n"+writing.value;
-                }
-
-                const table_dob = document.getElementById("table_dob").innerHTML=dob.value;
-                const table_city = document.getElementById("table_city").innerHTML=city.value;
-                const table_address = document.getElementById("table_address").innerHTML=address.value;
-                const table_image = document.getElementById("table_image").innerHTML=image.value;
-                
 
                 
                 thisform.reset();
@@ -218,6 +220,7 @@
                 
         }
 
+        
     </script>
 
 </body>
@@ -227,9 +230,109 @@
 
 
 
-<!-- 
 
-<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+                    
+
+
+
+
+
+                <!-- const newRow = document.createElement('tr');
+
+
+                const firstNameCell = document.createElement('td');
+                firstNameCell.textContent = fname.value;
+
+                const lastNameCell = document.createElement('td');
+                lastNameCell.textContent = lname.value;
+
+                const emailCell = document.createElement('td');
+                emailCell.textContent = email.value;
+
+                const mobileCell = document.createElement('td');
+                mobileCell.textContent = mobile.value;
+
+                const passwordCell = document.createElement('td');
+                passwordCell.textContent = password.value;
+
+                const genderCell = document.createElement('td');
+                genderCell.textContent = gender.value;
+
+                const hobbiesCell = document.createElement('td');
+                
+                
+                
+                if(travelling.checked == true)
+                {
+                    hobbiesCell.textContent += "\n"+travelling.value;
+                }
+
+                if(reading.checked ==  true)
+                {
+                    hobbiesCell.textContent += "\n"+reading.value;
+                }
+                
+                if(writing.checked == true)
+                {
+                    hobbiesCell.textContent += "\n"+writing.value;
+                }
+
+
+                const dobCell = document.createElement('td');
+                dobCell.textContent = dob.value;
+
+                const cityCell = document.createElement('td');
+                cityCell.textContent = city.value;
+
+                const addressCell = document.createElement('td');
+                addressCell.textContent = address.value;
+
+                const imageCell = document.createElement('td');
+                imageCell.textContent = image.value;
+
+                
+                newRow.appendChild(firstNameCell);
+                newRow.appendChild(lastNameCell);
+                newRow.appendChild(emailCell);
+                newRow.appendChild(mobileCell);
+                newRow.appendChild(passwordCell);
+                newRow.appendChild(genderCell);
+                newRow.appendChild(hobbiesCell);
+                newRow.appendChild(dobCell);
+                newRow.appendChild(cityCell);
+                newRow.appendChild(addressCell);
+                newRow.appendChild(imageCell);
+
+
+                tableBody.appendChild(newRow);
+
+                
+ -->
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -282,4 +385,4 @@
 </html>
 
 
- -->
+ --> 
