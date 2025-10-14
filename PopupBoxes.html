@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PopupBoxes Demo</title>
+</head>
+<body>
+
+    <button id="alt">Alert</button>
+
+    <button id="cnf">Confirm</button>
+
+    <button id="prm">Prompt</button>
+
+    <p id="demo"></p>
+
+    <script>
+        
+        const alt = document.getElementById("alt");
+        const cnf = document.getElementById("cnf");
+        const prm = document.getElementById("prm");
+        const demo = document.getElementById("demo");
+
+        alt.addEventListener('click', function(){
+
+                alert("Welcome");
+
+        });
+
+        
+
+        cnf.addEventListener('click', function(){
+
+                var txt="";
+                if(confirm("Press a Button"))
+                {
+                    txt = "You Pressed OK!";
+                }
+                else
+                {
+                    txt = "You Pressed Cancel!";
+                }
+
+                demo.innerHTML = txt;
+
+        });
+
+        prm.addEventListener('click', function(){
+
+                var txt="";
+                
+                let user = prompt("Please enter your name : ");
+
+                if(user == null || user == "")
+                {
+                    txt = "user cancelled the prompt";
+                }
+                else
+                {
+                    txt = "Hello "+user;
+                }
+
+
+                demo.innerHTML = txt;
+
+        });
+
+
+    </script>
+
+</body>
+</html>
