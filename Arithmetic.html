@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arithmetic Operations</title>
+
+    <link rel='stylesheet'  href='Arithmetic.css'>
+</head>
+<body>
+
+    
+        
+        <div class="container">
+
+            <div class="value1">
+                <label>Enter Value 1 : </label>
+                <input type="text"  id="value1"/>
+            </div>
+            
+
+            <div class="value2">
+                <label>Enter Value 2 : </label>
+                <input type="text"  id="value2"/>
+            </div>
+
+            <div class="buttons">
+                <button id="btnAdd">Addition</button>
+                <button id="btnSub">Subtraction</button>
+                <button id="btnMul">Multiplication</button>
+                <button id="btnDiv">Division</button>
+            </div>
+
+            <div class="result">
+                
+                <input type="text" id="result" style="border-radius: 30px; font-size: 25px; border: none; outline: none; padding: 8px 2px 8px 2px; text-align: center;" />
+                <button id="btnClear">Clear</button>
+            </div>
+            
+
+        </div>
+    
+
+
+    <script>
+
+
+        const value1 = document.getElementById("value1");
+        const value2 = document.getElementById("value2");
+
+        const btnAdd = document.getElementById("btnAdd");
+        const btnSub = document.getElementById("btnSub");
+        const btnMul = document.getElementById("btnMul");
+        const btnDiv = document.getElementById("btnDiv");
+
+        const result = document.getElementById("result");
+        const btnClear = document.getElementById("btnClear");
+
+
+        
+        btnAdd.addEventListener('click',function(){
+
+
+                result.value = parseFloat(value1.value) + parseFloat(value2.value);
+
+        });
+
+
+        btnSub.addEventListener('click',function(){
+
+                result.value = parseFloat(value1.value) - parseFloat(value2.value);
+
+        });
+
+        btnMul.addEventListener('click',function(){
+
+                result.value = parseFloat(value1.value) * parseFloat(value2.value);
+
+        });
+
+        btnDiv.addEventListener('click',function(){
+
+                result.value = parseFloat(value1.value) / parseFloat(value2.value);
+
+        });
+
+        btnClear.addEventListener('click',function(){
+
+                value1.value = "";
+                value2.value = "";
+                result.value = "";
+                value1.focus();
+        });
+
+
+    </script>
+    
+</body>
+</html>
