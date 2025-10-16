@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+       <title>To Do List</title>
+
+       <style>
+            *{
+                font-size: 25px;
+            }
+       </style>
+</head>
+<body>
+
+    <input type="text" id="txt" placeholder="Enter your tasks" /><br><br>
+    <button id="btnAdd">Add</button>
+    <button id="btnRemove">Remove</button>
+    <button id="btnRemovewithIndex">Remove with Index</button>
+    <br><br><br>
+
+    <table>
+        <thead>
+            <caption>ToDoList</caption>
+        </thead>
+        <tbody id="tableBody">
+
+        </tbody>
+    </table>
+
+
+    <script>
+
+        const tasks = [];
+
+        const txt = document.getElementById("txt");
+        const btnAdd = document.getElementById("btnAdd");
+        const btnRemove = document.getElementById("btnRemove");
+        const btnRemovewithIndex = document.getElementById("btnRemovewithIndex");
+        
+        const tableBody = document.getElementById("tableBody");
+
+
+        btnAdd.addEventListener('click',function() {
+ 
+            tasks.push(txt.value);
+            display();
+            
+        });
+
+        btnRemove.addEventListener('click',function() {
+ 
+            tasks.pop();
+            display();
+            
+        });   
+           
+        btnRemovewithIndex.addEventListener('click',function() {
+ 
+            tasks.splice(txt.value,1);
+            display();
+            
+        });
+
+        btnRemovewithIndex.addEventListener('mouseover',function() {
+ 
+            txt.style.border = "2px solid red";
+            txt.placeholder = "Enter Index";
+            
+        });
+
+        btnRemovewithIndex.addEventListener('mouseout',function() {
+ 
+            txt.style.border ="";
+            txt.placeholder = "Enter your tasks";
+            
+        });
+
+
+        function display()
+        {
+            let txt = "";
+            for(let i in tasks)
+            {
+                txt += `<tr>${tasks[i]}</tr>`;
+            }
+            tableBody.innerHTML = txt;
+        
+        }
+           
+     
+            
+        
+
+    </script>
+
+</body>
+</html>
