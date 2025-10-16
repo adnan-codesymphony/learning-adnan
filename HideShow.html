@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hide Show</title>
+
+    <style>
+        .container{
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        img{
+
+            height: 300px;
+            width: 300px;
+        }
+        button{
+
+            margin-top: 30px;
+            background-color: aqua;
+            border-radius: 5px;
+            font-size: 20px;
+            padding: 5px 20px 5px 20px;
+            text-align: center;
+            font-weight: bold;
+            
+        }
+    </style>
+    
+
+
+</head>
+<body>
+
+    <div class="container">
+
+        <img src="lux.jpg" id="image"/>
+
+        <button id="btn">Hide</button>
+
+    </div>
+
+    <script>
+
+        const image = document.getElementById("image");
+        const btn = document.getElementById("btn");
+
+        btn.addEventListener('click', function(){
+
+
+            if(this.innerHTML == "Hide")
+            {
+                this.innerHTML="Show";
+                image.style.visibility = "hidden";
+            }
+            else if(this.innerHTML == "Show")
+            {
+                this.innerHTML="Hide";
+                image.style.visibility = "visible";
+            } 
+
+            
+        });
+
+    </script>
+    
+</body>
+</html>

@@ -1,4 +1,338 @@
+
 <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Form</title>
+    <link rel='stylesheet' href='CSS.css'>
+</head>
+
+<body>
+
+
+    <center>
+        <div class="contact">
+            <form action="" name="myForm" id="thisform">
+
+                
+                <label for="fname">Firstname</label>
+                <input type="text" name="fname" /><br><br>
+
+                <label for="lname">Lastname</label>
+                <input type="text" name="lname" /><br><br>
+
+                <label for="email">Email</label>
+                <input type="email" name="email" /><br><br>
+
+                <label for="mobile">Mobile No.</label>
+                <input type="number" name="mobile" /><br><br>
+
+                <label for="password">Password</label>
+                <input type="password" name="password" /><br><br>
+
+
+               
+                
+                
+                <label for="gender"> Gender</label>
+
+                <label for="male" id="male">Male</label>
+                <input type="radio"  name="gender" value="Male"/>
+
+                <label for="female" id="female">Female</label>
+                <input type="radio"  name="gender" value="Female"/><br><br>
+
+
+
+                <label for="hobbies">Hobbies</label>
+
+                <label for="travelling" id="travelling">Travelling</label>
+                <input type="checkbox" name="travelling" value="Travelling" />
+
+                <label for="reading" id="reading">Reading</label>
+                <input type="checkbox" name="reading" value="Reading" />
+
+                <label for="writing" id="writing">Writing</label>
+                <input type="checkbox" name="writing" value="Writing"/><br><br>
+
+                <label for="dob">Date of Birth</label>
+                <input type="date" name="dob" /><br><br>
+
+
+                <label for="city">City</label>
+                <select name="cities">
+                    <option value="">Select City</option>
+                    <option value="Jamnagar">Jamnagar</option>
+                    <option value="Ahmedabad">Ahmedabad</option>
+                    <option value="Surat">Surat</option>
+                    <option value="Rajkot">Rajkot</option>
+                    <option value="Baroda">Baroda</option>
+                </select><br><br>
+
+
+                <label for="address">Address</label>
+                <textarea name="address" rows="5" cols="30">
+
+                </textarea><br><br>
+
+                <label for="image">Image</label>
+                <input type="file" name="image" accept="image/gif, image/jpeg, image/png"   /><br><br>
+
+
+                <input type="submit" name="Submit" onclick="showData()"/>
+                
+
+                
+            </form>
+
+
+            <table cellspacing="10">
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
+                    <th>Mobile No.</th>
+                    <th>Password</th>
+                    <th>Gender</th>
+                    <th>Hobbies</th>
+                    <th>Date of Birth</th>
+                    <th>City</th>
+                    <th>Address</th>
+                    <th>Image</th>
+                    
+                </tr>
+
+                <tbody id="tableBody">
+
+                </tbody>
+                
+               
+        
+            </table>
+
+            
+        </div>
+
+    </center>
+
+
+    <script>
+         function showData() 
+        {
+                
+                const thisform = document.getElementById("thisform");
+                const tableBody = document.getElementById("tableBody");
+
+
+                thisform.addEventListener('submit',function(event) {
+                    
+                    
+                    event.preventDefault();
+                    
+                });
+
+             
+                var fname = document.forms["myForm"]["fname"];
+                var lname = document.forms["myForm"]["lname"];
+                var email = document.forms["myForm"]["email"];
+                var mobile = document.forms["myForm"]["mobile"];
+                var password = document.forms["myForm"]["password"];
+
+                var gender = document.forms["myForm"]["gender"];
+                var travelling = document.forms["myForm"]["travelling"];
+                var reading = document.forms["myForm"]["reading"];
+                var writing = document.forms["myForm"]["writing"];
+
+                var dob = document.forms["myForm"]["dob"];
+                var city = document.forms["myForm"]["cities"];
+                var address = document.forms["myForm"]["address"];
+                var image = document.forms["myForm"]["image"];
+            
+            
+                console.log("Firstname: "+fname.value+"\nLastname : "+lname.value+"\nEmail : "+email.value+"\nMobile No. : "+mobile.value+"\nPassword : "+password.value+"\nGender: "+gender.value);
+                
+                   
+
+                console.log("\nHobbies : ");
+                if(travelling.checked == true)
+                {
+                    console.log("\n"+travelling.value);
+                }
+
+                if(reading.checked ==  true)
+                {
+                    console.log("\n"+reading.value);
+                }
+                
+                if(writing.checked == true)
+                {
+                    console.log("\n"+writing.value);
+                }
+
+                console.log("\nDate of Birth : "+dob.value+"\nCity : "+city.value+"\nAddress : "+address.value+"\nImage : "+image.value);
+
+
+
+
+
+                var hobbies = "";
+
+                const newRow = document.createElement('tr');
+
+                             if(travelling.checked == true)
+                            {
+                                hobbies += "\n"+travelling.value;
+                            }
+
+                            if(reading.checked ==  true)
+                            {
+                                 hobbies += "\n"+reading.value;
+                            }
+                            
+                            if(writing.checked == true)
+                            {
+                                 hobbies += "\n"+writing.value;
+                            }
+
+
+                newRow.innerHTML=`
+                        <td>${fname.value}</td>
+                        <td>${lname.value}</td>
+                        <td>${email.value}</td>
+                        <td>${mobile.value}</td>
+                        <td>${password.value}</td>
+                        <td>${gender.value}</td> 
+                        <td>${hobbies}</td>
+                        <td>${dob.value}</td>
+                        <td>${city.value}</td>
+                        <td>${address.value}</td>
+                        <td>${image.value}</td>   
+                    `;
+          
+               
+                tableBody.appendChild(newRow);
+
+
+                
+                thisform.reset();
+                fname.focus();
+                
+                
+        }
+
+        
+    </script>
+
+</body>
+
+</html>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+                    
+
+
+
+
+
+                <!-- const newRow = document.createElement('tr');
+
+
+                const firstNameCell = document.createElement('td');
+                firstNameCell.textContent = fname.value;
+
+                const lastNameCell = document.createElement('td');
+                lastNameCell.textContent = lname.value;
+
+                const emailCell = document.createElement('td');
+                emailCell.textContent = email.value;
+
+                const mobileCell = document.createElement('td');
+                mobileCell.textContent = mobile.value;
+
+                const passwordCell = document.createElement('td');
+                passwordCell.textContent = password.value;
+
+                const genderCell = document.createElement('td');
+                genderCell.textContent = gender.value;
+
+                const hobbiesCell = document.createElement('td');
+                
+                
+                
+                if(travelling.checked == true)
+                {
+                    hobbiesCell.textContent += "\n"+travelling.value;
+                }
+
+                if(reading.checked ==  true)
+                {
+                    hobbiesCell.textContent += "\n"+reading.value;
+                }
+                
+                if(writing.checked == true)
+                {
+                    hobbiesCell.textContent += "\n"+writing.value;
+                }
+
+
+                const dobCell = document.createElement('td');
+                dobCell.textContent = dob.value;
+
+                const cityCell = document.createElement('td');
+                cityCell.textContent = city.value;
+
+                const addressCell = document.createElement('td');
+                addressCell.textContent = address.value;
+
+                const imageCell = document.createElement('td');
+                imageCell.textContent = image.value;
+
+                
+                newRow.appendChild(firstNameCell);
+                newRow.appendChild(lastNameCell);
+                newRow.appendChild(emailCell);
+                newRow.appendChild(mobileCell);
+                newRow.appendChild(passwordCell);
+                newRow.appendChild(genderCell);
+                newRow.appendChild(hobbiesCell);
+                newRow.appendChild(dobCell);
+                newRow.appendChild(cityCell);
+                newRow.appendChild(addressCell);
+                newRow.appendChild(imageCell);
+
+
+                tableBody.appendChild(newRow);
+
+                
+ -->
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -51,97 +385,4 @@
 </html>
 
 
-
-
-
-
-
-
-<!--
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <title>Form</title>
-    <link rel='stylesheet' href='CSS.css'>
-</head>
-
-<body>
-
-
-    <center>
-        <div class="contact">
-            <form action="">
-
-                <label for="fname">Firstname</label>
-                <input type="text" name="fname" /><br><br>
-
-                <label for="lname">Lastname</label>
-                <input type="text" name="lname" /><br><br>
-
-                <label for="email">Email</label>
-                <input type="email" name="email" /><br><br>
-
-                <label for="mobile">Mobile No.</label>
-                <input type="number" name="mobile" /><br><br>
-
-                <label for="password">Password</label>
-                <input type="password" name="password" /><br><br>
-
-
-                <label for="gender"> Gender</label>
-
-                <label for="male" id="male">Male</label>
-                <input type="radio"  name="gender" />
-
-                <label for="female" id="female">Female</label>
-                <input type="radio"  name="gender" /><br><br>
-
-
-
-                <label for="hobbies">Hobbies</label>
-
-                <label for="travelling" id="travelling">Travelling</label>
-                <input type="checkbox" name="Travelling" />
-
-                <label for="reading" id="reading">Reading</label>
-                <input type="checkbox" name="Reading" />
-
-                <label for="writing" id="writing">Writing</label>
-                <input type="checkbox" name="Writing" /><br><br>
-
-                <label for="dob">Date of Birth</label>
-                <input type="date" name="dob" /><br><br>
-
-
-                <label for="city">City</label>
-                <select>
-                    <option>Jamnagar</option>
-                    <option>Ahmedabad</option>
-                    <option>Surat</option>
-                    <option>Rajkot</option>
-                    <option>Baroda</option>
-                </select><br><br>
-
-
-                <label for="address">Address</label>
-                <textarea name="address" rows="5" cols="30">
-
-                </textarea><br><br>
-
-                <label for="image">Image</label>
-                <input type="file" name="image" /><br><br>
-
-
-
-                <input type="submit" name="Submit" />
-            </form>
-        </div>
-
-    </center>
-
-</body>
-
-</html>
--->
+ --> 

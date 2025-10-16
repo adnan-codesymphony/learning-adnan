@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Array Demo</title>
+
+        <style>
+            input{
+
+                width: 30%;
+                font-size: 25px;
+                border: 2px solid gray;
+            }
+            button{
+
+                font-size: 25px;
+            }
+        </style>
+</head>
+<body>
+
+    <input type="text" id="txt" placeholder="Enter an element to add in an Array" />
+    <button id="btnAdd">Add</button><br><br>
+
+    <input type="text" id="result"/>
+    <button id="btnRemove">Remove</button><br><br>
+    <button id="btnSearch">Search</button>
+
+    <script>
+
+        const arr = [];
+        const txt = document.getElementById("txt");
+        const btnAdd = document.getElementById("btnAdd");
+        const btnRemove = document.getElementById("btnRemove");
+        const btnSearch = document.getElementById("btnSearch");
+        const result = document.getElementById("result");
+
+
+        btnAdd.addEventListener('click', function() {
+            
+               result.style.borderBlockColor = "gray";
+
+               arr.push(txt.value);
+               result.value = arr;
+
+               txt.value = "";
+               txt.focus();
+        });
+
+        btnRemove.addEventListener('click', function() {
+            
+               arr.pop();
+               result.value = arr;
+        });
+
+        btnSearch.addEventListener('click', function() {
+            
+               found = arr.includes(txt.value);
+               
+               if(found == true)
+               {
+                    result.style.border = "2px solid green";
+                    alert("Present");
+                        
+               }
+               result.value = arr;
+        });
+        
+
+    </script>
+
+</body>
+</html>

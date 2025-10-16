@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Task</title>
+
+    <style>
+        *{
+            text-align: center;
+        }
+        button{
+
+            font-size: 20px;
+            text-align: center;
+        }
+    </style>
+
+
+</head>
+<body>
+    <button id="btn1">Button1</button>
+    <button id="btn2">Button2</button>
+    <button id="btn3">Button3</button>
+
+    <p id="text"></p>
+
+
+    <script>
+
+            const btn1 = document.getElementById("btn1");
+            const btn2 = document.getElementById("btn2");
+            const btn3 = document.getElementById("btn3");
+            const text = document.getElementById("text");
+
+
+            btn1.addEventListener('click',function(){
+                text.innerHTML="This is text1";
+                text.style="font-size:25px; margin:20px; background-color: red; color:white";
+     
+            });
+
+             btn2.addEventListener('click',function(){
+                text.innerHTML="This is text2";
+                text.style="font-size:25px; margin:20px; background-color: green; color:white";
+     
+            });
+
+            btn3.addEventListener('click',function(){
+                text.innerHTML="This is text3";
+                text.style="font-size:25px; margin:20px; background-color: blue; color:white";
+     
+            });
+
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MouseEvents Demo</title>
+    <style>
+        div{
+
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            height: 250px;
+            width: 250px;
+            background-color: red;
+            font-size: 30px;
+            color: white;
+           
+        }
+    </style>
+</head>
+<body>
+
+    <div id="demo"></div>
+    
+
+    <script>
+
+        
+
+        const demo = document.getElementById("demo");
+
+
+       /*  demo.addEventListener('click', function(){
+            alert("Welcome");
+        });
+ */
+        demo.addEventListener('dblclick', function(){
+            alert("How are you?");
+        });
+
+        demo.addEventListener('mouseover', function(){
+            this.innerHTML = "Thank You";
+        });
+
+        demo.addEventListener('mouseout', function(){
+            this.innerHTML = "Mouse Over Me";
+        });
+
+        demo.addEventListener('mousedown', function(){
+            this.style.backgroundColor = 'green';
+        });
+
+        demo.addEventListener('mouseup', function(){
+            this.style.backgroundColor = 'blue';
+        });
+
+
+    </script>
+
+
+
+</body>
+</html>

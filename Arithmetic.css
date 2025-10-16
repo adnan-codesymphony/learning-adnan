@@ -1,0 +1,58 @@
+body
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.container
+{
+
+    background-color: bisque;
+    height: 400px;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.value1, .value2, .buttons, .result{
+
+    margin-top: 20px;
+}
+
+
+label {
+   
+    font-size: 20px;
+
+}
+
+input {
+   
+    font-size: 20px;
+    
+}
+
+button{
+
+    font-size: 20px;
+    padding: 8px 5px 8px 5px;
+    margin-left: 10px;
+    border-radius: 5px;
+}
+
+.result{
+
+    font-size: 30px;
+    
+}
+span{
+
+    
+    background-color: white;
+}

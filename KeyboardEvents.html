@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Keyboard Events Demo</title>
+
+        <style>
+            *{
+                font-size: 20px;
+            }
+        </style>
+        
+</head>
+<body>
+
+    <input type="text" id="mytext"/>
+
+    <p id="show"></p>
+
+    <script>
+
+        const mytext = document.getElementById("mytext");
+        const show = document.getElementById("show");
+
+        mytext.addEventListener('keydown',function(event){
+
+            show.innerHTML = "Key Down : "+event.key;
+        });
+
+        mytext.addEventListener('keyup',function(event){
+
+            show.innerHTML = "Key Up : "+event.key;
+        });
+
+        mytext.addEventListener('keypress',function(event){
+
+            show.innerHTML = "Key Pressed : "+event.key;
+        });
+    </script>
+    
+</body>
+</html>
