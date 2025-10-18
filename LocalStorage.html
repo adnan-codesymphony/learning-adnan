@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>LocalStorage Demo</title>
+</head>
+<body>
+
+    <h2 id="demo"></h2>
+    
+</body>
+
+
+    <script>
+
+        let person = {
+
+            firstname : "John",
+            lastname : "Doe",
+            age : 50,
+        
+        };
+
+        //localStorage.setItem("firstname","Amit");
+        //localStorage.setItem("lastname","Mehta");
+
+        //localStorage.clear();
+        //localStorage.removeItem("lastname");
+
+        //document.getElementById("demo").innerHTML = localStorage.getItem("firstname") + " "+localStorage.getItem("lastname");
+
+
+       /*  const jsonString = JSON.stringify(person);
+        localStorage.setItem("person",jsonString);
+        
+        
+        const getObject = localStorage.getItem("person");
+        const parse = JSON.parse(getObject); */
+
+        /* document.getElementById("demo").innerHTML = parse.firstname +" , "+parse.lastname+" , "+ parse.age;
+ */
+        
+        
+        localStorage.setItem("person", JSON.stringify(person));
+        
+        const personObject = JSON.parse(localStorage.getItem("person"));
+        
+
+
+        document.getElementById("demo").innerHTML = personObject.firstname +" , "+personObject.lastname+" , "+ personObject.age;
+
+
+    </script>
+
+
+
+</html>
