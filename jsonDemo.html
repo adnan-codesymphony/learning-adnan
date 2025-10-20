@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>JSON Demo</title>
+        <style>
+            *{
+                font-size: 20px;
+            }
+            table{
+                width: 100%;
+                
+            }
+           
+        </style>
+</head>
+<body>
+
+    <table border="1">
+        <th>UserId</th>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Body</th>
+
+
+        <tbody id="tableBody">
+
+        </tbody>
+    </table>
+
+
+    <script type="module">
+
+        import data from './data.json' with {type : 'json'};
+
+        var tableBody = document.getElementById("tableBody");
+
+        var text = "";
+
+        
+        data.filter((data)=>{
+
+            if(data.id > 20)
+            {
+                text += `<tr>
+
+                <td>${data.userId}</td>
+                <td>${data.id}</td>
+                <td>${data.title}</td>
+                <td>${data.body}</td>
+                
+                </tr>`;
+            }
+            
+
+        });
+
+        tableBody.innerHTML = text;
+        
+
+
+
+/*
+data.forEach((data)=>{
+
+            
+            text += `<tr>
+
+                <td>${data.userId}</td>
+                <td>${data.id}</td>
+                <td>${data.title}</td>
+                <td>${data.body}</td>
+                
+                </tr>`;
+
+            });
+*/
+
+        
+        
+        console.log(data);
+    </script>
+    
+</body>
+</html>
+
+

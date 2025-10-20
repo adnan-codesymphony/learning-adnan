@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="signup.css"/>
+</head>
+  
+
+<body>
+
+
+
+    <div class="main">
+
+    
+    <div class="container">
+        
+        
+             <h1>Login Here!</h1>
+           
+
+            <form  name="myForm" id="thisform" action="#">
+
+                    <div class="input-group">
+                        <input type="email" name="email"/>
+                        <label>Email</label>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="password" name="password"/>
+                        <label>Password</label>
+                    </div>
+
+                    
+                   <input type="button" value="Login" onclick="showData()" />
+            </form>  
+
+            </div>
+
+
+           
+    </div>
+
+
+
+
+      <script >
+
+
+        function showData() 
+        {
+                const fname_id = document.getElementById("fname_id");
+                const thisform = document.getElementById("thisform");
+                /* thisform.addEventListener('submit',function(event) {
+                    
+                    event.preventDefault();
+                }); */
+
+                
+                var email = document.forms["myForm"]["email"].value;
+                var password = document.forms["myForm"]["password"].value;
+
+
+                if (localStorage.getItem("email") == email && localStorage.getItem("password") == password)
+                {
+                    sessionStorage.setItem("email",email);
+                    sessionStorage.setItem("password",password);
+                    window.location.href = "Layout.html";
+                }
+                else
+                {
+                    window.location.href = "signup.html"; 
+                    
+                }
+            
+                
+            
+                thisform.reset();
+                fname_id.focus();
+                
+                
+        }
+        
+    </script>
+    
+</body>
+</html>

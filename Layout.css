@@ -1,5 +1,5 @@
 
-a{
+a, span {
    text-decoration: none;
    margin-right: 30px;
    color: white;
@@ -21,7 +21,6 @@ a{
    position: fixed;
    z-index: 1;
 }  
-
 
 .imgdiv{
 

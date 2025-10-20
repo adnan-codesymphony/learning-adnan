@@ -1,3 +1,11 @@
+<script>
+    if(sessionStorage.getItem("email") == null)
+    {
+        window.location.href = "login.html";
+    }
+</script>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +21,9 @@
         <a href="About.html" target="iframe">About</a>
         <a href="table.html" target="iframe">Projects</a>
         <a href="HtmlTags.html" target="iframe">FiveHtmlTags</a>
+        <span id="session"></span>
+        <!-- <a href="login.html" target="iframe"></a> -->
+        <button id="removeSession">Logout</button>
     </div>
 
     <div class="description">
@@ -64,6 +75,23 @@
         [3,"Dove","dove_new.jpg",1,43,43],
         [4,"Lux","lux.jpg",1,30,30]
     ]; */
+
+
+        
+        if(sessionStorage.getItem("email") != null)
+        {
+            const session = document.getElementById("session");
+            session.innerHTML = "Welcome, "+sessionStorage.getItem("email");
+
+        }
+        
+
+        const removeSession = document.getElementById("removeSession");  
+        removeSession.addEventListener('click',function() {
+            
+                sessionStorage.clear();
+                window.location.href = "login.html";
+        });      
 
 
         const items = [

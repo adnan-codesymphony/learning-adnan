@@ -21,7 +21,7 @@
              <h1>Sign Up</h1>
            
 
-            <form  name="myForm" id="thisform">
+            <form  name="myForm" id="thisform" action="#">
                      <div class="input-group">
                         <input type="text" name="fname" id="fname_id"/>
                         <label>Firstname</label>
@@ -47,14 +47,14 @@
                         <label>Password</label>
                     </div>
 
-                   <input type="submit" value="Submit" onclick="showData()" />
+                   <input type="button" value="Submit" onclick="showData()" />
             </form>  
 
             </div>
 
 
-            <table cellspacing="15">
-                <tr>
+        <!--     <table cellspacing="15">
+                <tr>localStorage
                     <th>Field</th>
                     <th>Value</th>
                 </tr>
@@ -78,7 +78,7 @@
                     <td>Password</td>
                     <td id="table_password"></td>
                 </tr>
-            </table>
+            </table> -->
         
     </div>
 
@@ -88,21 +88,110 @@
       <script >
         function showData() 
         {
+               // localStorage.clear();
                 const fname_id = document.getElementById("fname_id");
                 const thisform = document.getElementById("thisform");
-                thisform.addEventListener('submit',function(event) {
+                /* thisform.addEventListener('submit',function(event) {
                     
                     event.preventDefault();
-                });
+                }); */
 
+                //var id = 1;
              
                 var fname = document.forms["myForm"]["fname"].value;
                 var lname = document.forms["myForm"]["lname"].value;
                 var email = document.forms["myForm"]["email"].value;
                 var mobile = document.forms["myForm"]["mobile"].value;
                 var password = document.forms["myForm"]["password"].value;
+
+
+
+
+
+                 if (localStorage.getItem("email") == email && localStorage.getItem("password") == password)
+                    {
+                        
+                        alert("User already registered"); 
+                        window.location.href = "login.html";
+                        
+                    }
+                    else
+                    {
+                        localStorage.setItem("fname",fname);
+                        localStorage.setItem("lname",lname);
+                        localStorage.setItem("email",email);
+                        localStorage.setItem("mobile",mobile);
+                        localStorage.setItem("password",password);
+                        alert("Registeration Successful"); 
+                        window.location.href = "login.html";   
+                    }
+
+
+                 //const user = [];
+                 /* localStorage.setItem("user",JSON.stringify(user));
+
+                  */
+
+                /* var users = JSON.parse(localStorage.getItem("user"));
+                // console.log(users);
+                let found = users.filter((user)=>{
+                    if(user.email == email) return user
+                });
+ */
                 
                 
+                
+
+                  /*   if (found.email == email)
+                    {
+                        
+                        alert("User already registered"); 
+                        window.location.href = "login.html";
+                        
+                    }
+                    else
+                    {
+                        //  console.log(users.email);
+                        
+                        
+                        user.push({
+                            id : id,
+                            fname : fname,
+                            lname : lname,
+                            email : email,
+                            mobile : mobile,
+                            password : password
+                        });
+                        
+                        
+                        
+                        localStorage.setItem("user",JSON.stringify(user));
+                        alert("Registeration Successful");
+                    }
+
+            
+                
+                
+ */
+
+                    /* 
+                    localStorage.setItem("fname",fname);
+                    localStorage.setItem("lname",lname);
+                    localStorage.setItem("email",email);
+                    localStorage.setItem("mobile",mobile);
+                    localStorage.setItem("password",password);
+                    alert("Registeration Successful"); 
+                    window.location.href = "login.html";
+                    */
+
+
+                 
+                    
+            
+                
+
+                
+                /* 
                 console.log("Firstname: "+fname+"\nLastname : "+lname+"\nEmail : "+email+"\nMobile No. : "+mobile+"\nPassword : "+password);
                 
                 const table_fname = document.getElementById("table_fname").innerHTML=fname;
@@ -111,7 +200,7 @@
                 const table_mobile = document.getElementById("table_mobile").innerHTML=mobile;
                 const table_password = document.getElementById("table_password").innerHTML=password;
 
-
+ */
 
                 thisform.reset();
                 fname_id.focus();
