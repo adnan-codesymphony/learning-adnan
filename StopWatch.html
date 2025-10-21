@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StopWatch</title>
+    <style>
+        *{
+            font-size: 30px;
+            text-align: center;
+        }
+        table{
+            margin: 100px 0px 0px 650px;
+            
+        }
+    </style>
+</head>
+<body>
+
+    <span id="show"></span><br><br>
+    <button id="start">Start</button>
+    <button id="stop" >Stop</button>
+    <button id="lap">Lap</button>
+    <button id="reset">Reset</button>
+
+
+    <table border="1">
+        <th>No</th>
+        <th>Laps</th>
+
+        <tbody id="tableBody">
+
+        </tbody>
+    </table>
+    
+    <script>
+
+        const show = document.getElementById("show");
+        const start = document.getElementById("start");
+        const stopTime = document.getElementById("stop");
+        const lap = document.getElementById("lap");
+        const reset = document.getElementById("reset");
+
+        const tableBody = document.getElementById("tableBody");
+
+        let count = 1;
+        let hours = 0;
+        let minutes = 0;
+        let seconds = 0;        
+        let watch;
+        let time;
+        var arr = [];
+       
+        lap.disabled = true;
+
+        
+
+        watch = `${"0"+hours} : ${"0"+minutes} : ${"0"+seconds}`;
+        show.innerHTML = watch;
+
+        start.addEventListener('click', function () {
+            
+            lap.disabled = false;
+
+            if(count == 1)
+            {
+                time = setInterval(myFunction,1000);
+                count = 0;    
+            }
+        
+     
+        });
+
+        stopTime.addEventListener('click', function () {
+                    
+                    clearInterval(time);
+                    show.innerHTML = watch;
+                    count = 1;
+
+                    lap.disabled = true;
+        });
+        
+
+
+        lap.addEventListener('click', function () {
+                    
+
+                //localStorage.clear();
+                
+                arr.push({
+                    lap : watch
+                });
+                localStorage.setItem("stopwatch",JSON.stringify(arr));
+              
+
+                let getArray = JSON.parse(localStorage.getItem("stopwatch"));
+                
+                var txt = "";
+                
+                getArray.map((getArray, index)=>{
+
+                        txt += `
+                            <tr>
+                                <td>${index+1}</td>
+                                <td>${getArray.lap}</td>    
+                            </tr>
+                        `;
+                });
+
+                tableBody.innerHTML = txt;
+        });        
+
+             
+        reset.addEventListener('click', function () {
+                    
+                    hours=0;
+                    minutes=0;
+                    seconds=0;
+                    watch = `${"0"+hours} : ${"0"+minutes} : ${"0"+seconds}`;
+                    show.innerHTML = watch;
+                    //localStorage.clear();
+                    txt = "";
+                    tableBody.innerHTML = txt;
+                    arr = [];
+                    localStorage.setItem("stopwatch",JSON.stringify(arr));
+ 
+        });
+          
+        function myFunction()
+              {
+           
+                    if (seconds == 60)
+                    {
+                        minutes += 1; 
+                        seconds = 0;   
+                    } 
+                    if (minutes == 60)
+                    {
+                        hours += 1; 
+                        minutes = 0;   
+                    }    
+                 
+                    watch = `${hours<10? "0"+hours : hours} : ${minutes<10? "0"+minutes : minutes} : ${seconds<10? "0"+seconds : seconds}`;
+                    show.innerHTML = watch;   
+                    seconds += 1;
+             }
+
+    </script>
+    
+</body>
+</html>
