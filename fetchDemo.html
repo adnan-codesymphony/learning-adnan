@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>fetch API Demo</title>
+</head>
+<body>
+
+    <script>
+
+        let URL = "https://jsonplaceholder.typicode.com/posts";
+
+
+       /*  
+        async function getData()
+        {
+            let response = await fetch(URL);
+            let d = response.json();
+            
+            console.log(d);
+
+        }
+
+        getData(); 
+
+        function getFacts()
+        {
+            fetch(URL)
+                .then((response)=>{
+                    return response.json();
+                })
+                .then((data)=>{
+                    console.log(data);
+                })    
+        }
+
+        getFacts();
+
+        */
+
+            fetch(URL,{
+                fname : 'John',
+                lname : 'Doe',
+                userId : 1
+            })
+                .then((response)=>{
+                    return response.json();
+                })
+                .then((data)=>{
+                    console.log(data);
+                })  
+
+
+    </script>
+    
+</body>
+</html>

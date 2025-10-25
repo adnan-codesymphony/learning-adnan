@@ -23,35 +23,46 @@
 
         genPass.addEventListener('click', function () {
 
-            var txt = "";
-            let pass;
 
-            for(let i=1; i<=10; i++)
-            {
-                pass = Math.floor(Math.random()*126);
-                txt += String.fromCharCode(checkPass(pass));
-            }
-     
-            show.innerHTML = txt;
+            let specialChar = ['#','$','&','!','%','@'];
+            let upperChar = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+            let lowerChar = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+            let upper;
+            let lower;
+            let pass;
+            let spChar;
+            let txt = "";
+
+
+            
+                
+                for(let i=1; i<=3; i++)
+                {
+                    if(i==1)
+                    {
+                         spChar = specialChar[Math.floor(Math.random()*5)];
+                         txt += spChar;
+
+                    }
+                    if(i<=2)
+                    {
+                         pass = Math.floor(Math.random()*10);
+                         txt += pass;
+                         upper = upperChar[Math.floor(Math.random()*25)];
+                         txt += upper;
+                    }
+                    if(i<=3)
+                    {
+                         lower = lowerChar[Math.floor(Math.random()*25)];
+                         txt += lower;
+                    }
+                }
+
+                show.innerHTML = txt;
 
         });
 
 
-        function checkPass(p)
-        {
-            
-             while(p<33)
-             {
-                        p = Math.floor(Math.random()*126);
-
-                        if(p>32)
-                        {
-                            break;
-                        }
-             } 
-
-             return p;
-        }   
     </script>
     
 </body>
