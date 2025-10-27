@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise method demo</title>
+</head>
+<body>
+    
+
+    <script>
+             
+             
+             
+        let url = "https://jsonplaceholder.typicode.com/posts";
+        let users = "https://jsonplaceholder.typicode.com/users";
+  
+        async function getData()
+        {
+            try
+            {
+                let [res1, res2] = await Promise.all([fetch(url),fetch(users)]);
+
+                /* if (!res1.ok || !res2.ok) 
+                {
+                    throw new Error(`HTTP Error , Status : ${response.status}`);
+                }  */
+
+                let data1 = await res1.json();
+                let data2 = await res2.json();
+                console.log(data1, data2);
+ 
+
+
+            } catch (error) 
+            {
+                console.log(error);
+            }  
+
+        }
+
+        getData(); 
+    </script>
+</body>
+</html>

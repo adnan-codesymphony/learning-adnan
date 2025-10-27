@@ -8,11 +8,130 @@
     <script>
       // import axios from 'axios';
 
-      let url = "https://jsonplaceholder.typicode.com/posts";
+      // const url = "https://jsonplaceholder.typicode.com/posts";
 
-      axios.get(url).then(response => {
-        console.log(response.data);
-      });
+// -------------------------- axios() get request -----------------------------
+
+      /* 
+      async function getData()
+      {
+          let response = await axios.get(url);
+          console.log(response.data);
+      }
+
+      getData();
+
+ */    
+ 
+
+// -------------------------- axios() post request -----------------------------
+
+/*  
+      const send = {
+            id : 1,
+            title : "This is a post using axios()"
+        };
+ 
+      
+        async function sendData()
+        {
+            let response = await axios.post(url, send);
+            console.log(response.data);
+        }
+
+        sendData();
+
+ */
+
+ // -------------------------- axios() put request -----------------------------
+
+ /* 
+      const url = "https://jsonplaceholder.typicode.com/posts/1";
+      
+      const updateData = {
+            id : 1,
+            title : "PUT request",
+            body : "This is a put request",
+            userId : 1
+        };
+ 
+      
+        async function putData()
+        {
+            let response = await axios.put(url, updateData);
+            console.log(response.data);
+        }
+
+        putData();
+
+  */
+
+// -------------------------- axios() patch request -----------------------------
+
+/* 
+      const url = "https://jsonplaceholder.typicode.com/posts/1";
+      
+      const patchData = {
+            
+            title : "PATCH request",
+            body : "This is a patch request",
+            
+        };
+      
+        async function patch()
+        {
+            let response = await axios.patch(url, patchData);
+            console.log(response.data);
+        }
+
+        patch();
+
+ */
+
+
+// -------------------------- axios() delete request -----------------------------
+
+ 
+      const url = "https://jsonplaceholder.typicode.com/posts/1";
+      
+        async function deleteData()
+        {
+            let response = await axios.delete(url);
+            console.log(response.data);
+        }
+
+        deleteData();
+
+ 
+
     </script>
   </body>
 </html>
+
+
+
+
+
+
+
+
+<!-- 
+     axios.get(url)
+      .then(response => {
+        console.log(response.data);
+        })
+      .catch(error=>{
+        console.log(error);
+        });
+
+ 
+          
+      axios.post(url, send)
+        .then(response => {
+          console.log(response.data);
+        })
+        .catch(error=>{
+        console.log(error);
+        });
+          
+ -->
