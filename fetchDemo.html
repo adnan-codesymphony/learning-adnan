@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>fetch API Demo</title>
+
+    <style>
+        *{
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- <button id="btnClick">Click</button> -->
+
+
+    <script>
+/* 
+
+        const btnClick = document.getElementById("btnClick");
+
+        btnClick.addEventListener('click', ()=>{
+
+                getData();
+                myFunc();
+
+        });
+
+  */        let url = "https://jsonplaceholder.typicode.com/posts";
+
+// -------------------------- fetch() get request -----------------------------
+
+         
+        async function getData()
+        {
+            try
+            {
+                let response = await fetch(url);
+
+                if (!response.ok) 
+                {
+                    throw new Error(`HTTP Error , Status : ${response.status}`);
+                }
+
+                let data = await response.json();
+                console.log(data);
+
+            } catch (error) 
+            {
+                console.log(error);
+            }
+            
+            
+            
+
+        }
+
+        getData(); 
+
+
+/* 
+        
+        function myFunc()
+        {
+            console.log("This is demo");    
+        }
+        */
+
+
+// -------------------------- fetch() post request -----------------------------
+
+/* 
+
+        const send = {
+            id : 1,
+            title : "This is a post using fetch()"
+        }; 
+
+        const options = {
+            method : 'POST',
+            headers : {
+                'Content-Type' : 'application/json'
+            },
+            body : JSON.stringify(send)
+        };
+
+        
+            async function sendData()
+            {
+                let response = await fetch(url, options);
+                let data = await response.json();
+                console.log(data);
+            }
+            sendData();
+
+  
+ */
+
+
+// -------------------------- fetch() put request -----------------------------
+
+/* 
+ 
+        let url = "https://jsonplaceholder.typicode.com/posts/1";
+
+        const updateData = {
+            id : 1,
+            title : "PUT request",
+            body : "This is a put request",
+            userId : 1
+        }; 
+
+        const options = {
+            method : 'PUT',
+            headers : {
+                'Content-Type' : 'application/json'
+            },
+            body : JSON.stringify(updateData)
+        };
+
+        
+            async function putData()
+            {
+                let response = await fetch(url, options);
+                let data = await response.json();
+                console.log(data);
+            }
+            putData();
+
+  */  
+
+
+// -------------------------- fetch() patch request -----------------------------
+
+/* 
+ 
+        let url = "https://jsonplaceholder.typicode.com/posts/1";
+
+        const patchData = {
+            
+            title : "PATCH request",
+            body : "This is a patch request",
+            
+        }; 
+
+        const options = {
+            method : 'PUT',
+            headers : {
+                'Content-Type' : 'application/json'
+            },
+            body : JSON.stringify(patchData)
+        };
+
+        
+            async function patch()
+            {
+                let response = await fetch(url, options);
+                let data = await response.json();
+                console.log(data);
+            }
+            patch();
+
+ */
+
+
+// -------------------------- fetch() delete request -----------------------------
+
+/* 
+ 
+        let url = "https://jsonplaceholder.typicode.com/posts/1";
+
+        const options = {
+            method : 'DELETE'
+           
+        };
+
+        
+            async function deleteData()
+            {
+                let response = await fetch(url, options);
+                let data = await response;
+                console.log(data);
+            }
+            deleteData();
+
+  */           
+
+    </script>
+    
+</body>
+</html>
+
+    
+
+     <!--  fetch(url)
+                .then((response)=>{
+                    return response.json();
+                })
+                .then((data)=>{
+                    console.log(data);
+                })
+                .catch((error)=>{
+                    console.log(error);
+                })    
+        ------------------------------------------------
+
+         /*    
+            fetch(url,options)
+                .then((response)=>{
+                    return response.json();
+                })
+                .then((data)=>{
+                    console.log(data);
+                })  
+                .catch((error)=>{
+                    console.log(error);
+                })
+                 */
+
+         -->

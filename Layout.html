@@ -1,0 +1,450 @@
+<script>
+    if(sessionStorage.getItem("email") == null)
+    {
+        window.location.href = "login.html";
+    }
+</script>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+       <title>Layout</title>
+       <link rel='stylesheet'  href='Layout.css'> 
+</head>
+<body>
+    
+  
+    <div class="nav">
+        <a href="Home.html" target="iframe">Home</a>
+        <a href="Contact.html" target="iframe">Contact</a>
+        <a href="About.html" target="iframe">About</a>
+        <a href="table.html" target="iframe">Projects</a>
+        <a href="HtmlTags.html" target="iframe">FiveHtmlTags</a>
+        <span id="session"></span>
+        <!-- <a href="login.html" target="iframe"></a> -->
+        <button id="removeSession">Logout</button>
+    </div>
+
+    <div class="description">
+        <h1>
+            Welcome to our Grocery Store, Buy groceries with reasonable rates.
+        </h1>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident ullam impedit perspiciatis laborum optio possimus quod beatae veritatis distinctio sunt sequi nihil, sed nemo dolores dignissimos iure magnam odio deleniti.
+            Ratione, numquam! Accusantium autem, sapiente repellendus nobis praesentium quos est itaque ipsa, ipsam ex facilis natus. Obcaecati, et, vitae vero nostrum est soluta dolore perferendis, molestias architecto voluptates natus tempora.
+            Aliquam dicta in consectetur dignissimos iure accusantium. Eos hic doloremque voluptatum aliquam maxime autem, saepe dolore. Earum vero maiores dolore quas distinctio facilis sed optio consectetur, tempora accusamus temporibus totam?
+        </p>
+    </div>
+
+    <div class="imgdiv">
+    </div>
+
+    <div class="btnDiv">
+        <button id="btnDisplay">Display Items</button>
+        <p>Click the button given in left side to display the items in the Table. </p>
+
+    </div>
+
+    <div class="tableDiv">
+
+        <table cellspacing="50" id="tableDiv">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Name</th>
+                    <th>Image</th>
+                    <th>Qty</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+
+            <tbody id="tableBody">
+                
+            </tbody>
+        </table>
+    </div>
+
+
+    <script>
+
+       /*  const items = [ 
+        [1,"Wheat","wheat.jpg",1,22,22],
+        [2,"Rice","rice_new.jpg",1,30,30],
+        [3,"Dove","dove_new.jpg",1,43,43],
+        [4,"Lux","lux.jpg",1,30,30]
+    ]; */
+
+
+        
+        if(sessionStorage.getItem("email") != null)
+        {
+            const session = document.getElementById("session");
+            session.innerHTML = "Welcome, "+sessionStorage.getItem("email");
+
+        }
+        
+
+        const removeSession = document.getElementById("removeSession");  
+        removeSession.addEventListener('click',function() {
+            
+                sessionStorage.clear();
+                window.location.href = "login.html";
+        });      
+
+
+        const items = [
+
+            {
+                no : 1,
+                name : "Wheat",
+                image : "wheat.jpg",
+                qty : 1,
+                price : 22,
+                total : 22
+            },
+
+            {
+                no : 2,
+                name : "Rice",
+                image : "rice_new.jpg",
+                qty : 1,
+                price : 30,
+                total : 30
+            },
+
+            {
+                no : 3,
+                name : "Dove",
+                image : "dove_new.jpg",
+                qty : 1,
+                price : 43,
+                total : 43
+            },
+
+            {
+                no : 4,
+                name : "Lux",
+                image : "lux.jpg",
+                qty : 1,
+                price : 30,
+                total : 30
+            } ]
+
+            if(localStorage.getItem("items") == null)
+            {
+                localStorage.setItem("items",JSON.stringify(items));
+            }
+             
+        
+            const thisItems = JSON.parse(localStorage.getItem("items"));
+            
+
+                const btnDisplay = document.getElementById("btnDisplay");
+                const tableBody = document.getElementById("tableBody");
+                const tableDiv = document.getElementById("tableDiv");
+
+            
+                btnDisplay.addEventListener('click', function(){
+
+                                 tableDiv.style.display = "block";
+                                 render();
+                    });
+
+
+        function render()
+        {
+                    
+
+                    let txt = "";
+                
+                    thisItems.map((thisItems,index)=>{
+
+                        
+                                txt += `<tr style="font-size:20px">
+                                    <td id="id">${thisItems.no}</td>
+                                    <td>${thisItems.name}</td>
+                                    <td><img src='${thisItems.image}' style="height:100px; width:100px;"/></td>
+                                    <td>
+                                        <button id="btnMinus" style="background-color:red; color:white; border-radius:50%; font-size:20px; padding: 0px 7px 0px 7px" onclick="decrement(${index})">-</button>
+                                        ${thisItems.qty}
+                                        <button id="btnPlus"  style="background-color:green; color:white; border-radius:50%; font-size:20px;" onclick="increment(${index})">+</button>
+                                    </td>
+                                    <td>
+                                        ${thisItems.price}
+                                    </td>
+                                    <td>
+                                        ${thisItems.total = thisItems.price*thisItems.qty}
+                                    </td>
+
+                                    </tr>`;
+                                
+                    });
+
+                    localStorage.setItem("items",JSON.stringify(thisItems));
+                    tableBody.innerHTML = txt;
+
+
+        }
+           
+        function increment(i)
+        {
+             ++thisItems[i].qty;
+             render();
+        }
+         
+        function decrement(i)
+        {
+            if (thisItems[i].qty > 1)
+            {
+                --thisItems[i].qty;
+                     render();
+            }
+             
+        }
+                
+             
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+<!-- <script>
+    if(sessionStorage.getItem("email") == null)
+    {
+        window.location.href = "login.html";
+    }
+</script>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+       <title>Layout</title>
+       <link rel='stylesheet'  href='Layout.css'> 
+</head>
+<body>
+    
+  
+    <div class="nav">
+        <a href="Home.html" target="iframe">Home</a>
+        <a href="Contact.html" target="iframe">Contact</a>
+        <a href="About.html" target="iframe">About</a>
+        <a href="table.html" target="iframe">Projects</a>
+        <a href="HtmlTags.html" target="iframe">FiveHtmlTags</a>
+        <span id="session"></span>
+        <a href="login.html" target="iframe"></a> 
+        <button id="removeSession">Logout</button>
+    </div>
+
+    <div class="description">
+        <h1>
+            Welcome to our Grocery Store, Buy groceries with reasonable rates.
+        </h1>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident ullam impedit perspiciatis laborum optio possimus quod beatae veritatis distinctio sunt sequi nihil, sed nemo dolores dignissimos iure magnam odio deleniti.
+            Ratione, numquam! Accusantium autem, sapiente repellendus nobis praesentium quos est itaque ipsa, ipsam ex facilis natus. Obcaecati, et, vitae vero nostrum est soluta dolore perferendis, molestias architecto voluptates natus tempora.
+            Aliquam dicta in consectetur dignissimos iure accusantium. Eos hic doloremque voluptatum aliquam maxime autem, saepe dolore. Earum vero maiores dolore quas distinctio facilis sed optio consectetur, tempora accusamus temporibus totam?
+        </p>
+    </div>
+
+    <div class="imgdiv">
+    </div>
+
+    <div class="btnDiv">
+        <button id="btnDisplay">Display Items</button>
+        <p>Click the button given in left side to display the items in the Table. </p>
+
+    </div>
+
+    <div class="tableDiv">
+
+        <table cellspacing="50" id="tableDiv">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Name</th>
+                    <th>Image</th>
+                    <th>Qty</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+
+            <tbody id="tableBody">
+                
+            </tbody>
+        </table>
+    </div>
+
+
+    <script>
+
+       /*  const items = [ 
+        [1,"Wheat","wheat.jpg",1,22,22],
+        [2,"Rice","rice_new.jpg",1,30,30],
+        [3,"Dove","dove_new.jpg",1,43,43],
+        [4,"Lux","lux.jpg",1,30,30]
+    ]; */
+
+
+        
+        if(sessionStorage.getItem("email") != null)
+        {
+            const session = document.getElementById("session");
+            session.innerHTML = "Welcome, "+sessionStorage.getItem("email");
+
+        }
+        
+
+        const removeSession = document.getElementById("removeSession");  
+        removeSession.addEventListener('click',function() {
+            
+                sessionStorage.clear();
+                window.location.href = "login.html";
+        });      
+
+
+        const items = [
+
+            {
+                no : 1,
+                name : "Wheat",
+                image : "wheat.jpg",
+                qty : 1,
+                price : 22,
+                total : 22
+            },
+
+            {
+                no : 2,
+                name : "Rice",
+                image : "rice_new.jpg",
+                qty : 1,
+                price : 30,
+                total : 30
+            },
+
+            {
+                no : 3,
+                name : "Dove",
+                image : "dove_new.jpg",
+                qty : 1,
+                price : 43,
+                total : 43
+            },
+
+            {
+                no : 4,
+                name : "Lux",
+                image : "lux.jpg",
+                qty : 1,
+                price : 30,
+                total : 30
+            } ]
+
+            
+        
+            
+
+                const btnDisplay = document.getElementById("btnDisplay");
+                const tableBody = document.getElementById("tableBody");
+                const tableDiv = document.getElementById("tableDiv");
+
+            
+                btnDisplay.addEventListener('click', function(){
+
+                                 tableDiv.style.display = "block";
+                                 render();
+                    });
+
+
+        function render()
+        {
+
+                    let txt = "";
+                
+                    items.map((items,index)=>{
+
+                        
+                                txt += `<tr>
+                                    <td id="id">${items.no}</td>
+                                    <td>${items.name}</td>
+                                    <td><img src='${items.image}' style="height:100px; width:100px;"/></td>
+                                    <td>
+                                        <button id="btnMinus" style="background-color:red; color:white; border-radius:50%; font-size:20px; padding: 0px 7px 0px 7px" onclick="decrement(${index})">-</button>
+                                        <span id="qty">${items.qty}</span>
+                                        <button id="btnPlus"  style="background-color:green; color:white; border-radius:50%; font-size:20px;" onclick="increment(${index})">+</button>
+                                    </td>
+                                    <td>
+                                        <span id="price">${items.price}</span>
+                                    </td>
+                                    <td>
+                                        <span id="total">${items.price*items.qty}</span>
+                                    </td>
+
+                                    </tr>`;
+                                
+                    });
+
+                    tableBody.innerHTML = txt;
+
+
+        }
+           
+        function increment(i)
+        {
+             ++items[i].qty;
+             render();
+        }
+         
+        function decrement(i)
+        {
+            if (items[i].qty > 1)
+            {
+                --items[i].qty;
+                     render();
+            }
+             
+        }
+                
+             
+
+    </script>
+</body>
+</html>
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
