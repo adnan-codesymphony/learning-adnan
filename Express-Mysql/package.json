@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon pagination.js"
+    "start": "nodemon practice.js"
   },
   "author": "Adnan",
   "license": "ISC",
