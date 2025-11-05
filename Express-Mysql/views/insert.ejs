@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insert Page</title>
+    <style>
+        *{
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+
+    <form action="/insertUser" method="post">
+
+        
+        <input type="text" name="name" placeholder="Enter Name"/><br><br>
+        <input type="email" name="email" placeholder="Enter Email"/><br><br>
+        <input type="submit" value="Submit" />
+    </form>
+
+    
+    <table border="1" style="margin-top: 20px;">
+
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+
+            <tbody>
+                    <% 
+                        data.forEach((data)=>{
+                    %>
+                        <tr>
+                            <td><%=data.id%></td>
+                            <td><%=data.name%></td>
+                            <td><%=data.email%></td>
+                        </tr>
+                    <%
+                        })
+                       
+                    %>
+            </tbody>
+    </table>
+    
+    
+    <script>
+
+        
+    </script>
+</body>
+</html>
+
+
